@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>FontAwesomeWPF</Title>
+        <Authors>Nicolas Repiquet</Authors>
+        <Description>Simple library to bring FontAwesome icons in your WPF application</Description>
+        <Copyright>Nicolas Repiquet</Copyright>
+        <PackageProjectUrl>https://github.com/nicolas-repiquet/FontAwesomeWPF</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/nicolas-repiquet/FontAwesomeWPF/LICENSE.md</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/nicolas-repiquet/FontAwesomeWPF</RepositoryUrl>
+        <RepositoryType>Github</RepositoryType>
+        <PackageTags>FontAwesome Font Awesome icon icons WPF</PackageTags>
+    </PropertyGroup>
+
+</Project>

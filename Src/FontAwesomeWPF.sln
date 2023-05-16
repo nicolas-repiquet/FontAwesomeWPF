@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontAwesomeWPF.Gen", "FontAwesomeWPF.Gen\FontAwesomeWPF.Gen.csproj", "{5DF40C33-A05A-45B7-808F-CE5A86E500F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontAwesomeWPF", "FontAwesomeWPF\FontAwesomeWPF.csproj", "{BA67D58A-51A5-4842-AFE8-8314D9BC1618}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontAwesomeWPF.Test", "FontAwesomeWPF.Test\FontAwesomeWPF.Test.csproj", "{B2DAA910-CC1A-471E-A77A-599423960A57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DF40C33-A05A-45B7-808F-CE5A86E500F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DF40C33-A05A-45B7-808F-CE5A86E500F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DF40C33-A05A-45B7-808F-CE5A86E500F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DF40C33-A05A-45B7-808F-CE5A86E500F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA67D58A-51A5-4842-AFE8-8314D9BC1618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA67D58A-51A5-4842-AFE8-8314D9BC1618}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA67D58A-51A5-4842-AFE8-8314D9BC1618}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA67D58A-51A5-4842-AFE8-8314D9BC1618}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2DAA910-CC1A-471E-A77A-599423960A57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2DAA910-CC1A-471E-A77A-599423960A57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2DAA910-CC1A-471E-A77A-599423960A57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2DAA910-CC1A-471E-A77A-599423960A57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
