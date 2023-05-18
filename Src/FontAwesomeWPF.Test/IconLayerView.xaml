@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="FontAwesomeWPF.Test.IconLayerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:FontAwesomeWPF.Test"
+             xmlns:fa="clr-namespace:FontAwesomeWPF;assembly=FontAwesomeWPF"
+             mc:Ignorable="d" d:DataContext="{x:Type local:IconLayerView}"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <Grid Margin="3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+
+        <CheckBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center" IsChecked="{Binding IsVisible}" Margin="3">
+            <Label Content="Is visible" VerticalAlignment="Center" />
+        </CheckBox>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Mode" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" ItemsSource="{Binding Modes}"
+                  SelectedItem="{Binding Mode}" Margin="3"/>
+        
+        <Label Grid.Row="2" Grid.Column="0" Content="Source" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Height="40" ItemsSource="{Binding Sources}"
+                  SelectedItem="{Binding Source}" Margin="3">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <fa:Icon Source0="{Binding}" Brush0="Black" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" Margin="12,3,3,3"/>
+                    </Grid>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        
+        <Label Grid.Row="3" Grid.Column="0" Content="Brush" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Height="40" ItemsSource="{Binding Brushes}"
+                  SelectedItem="{Binding Brush}" Margin="3" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Rectangle MinHeight="20" Fill="{Binding}"></Rectangle>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label Grid.Row="4" Grid.Column="0" Content="Opacity" VerticalAlignment="Center"/>
+        <Slider Grid.Row="4" Grid.Column="1" Minimum="0" Maximum="1" Value="{Binding Opacity}" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Opacity}" VerticalAlignment="Center" TextAlignment="Right" Margin="3"/>
+        
+        <Label Grid.Row="5" Grid.Column="0" Content="Scale" VerticalAlignment="Center"/>
+        <Slider Grid.Row="5" Grid.Column="1" Minimum="0" Maximum="3" Value="{Binding Scale}" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding Scale}" VerticalAlignment="Center" TextAlignment="Right" Margin="3"/>
+        
+        <Label Grid.Row="6" Grid.Column="0" Content="OffsetX" VerticalAlignment="Center"/>
+        <Slider Grid.Row="6" Grid.Column="1" Minimum="-2" Maximum="2" Value="{Binding OffsetX}" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="6" Grid.Column="2" Text="{Binding OffsetX}" VerticalAlignment="Center" TextAlignment="Right" Margin="3"/>
+        
+        <Label Grid.Row="7" Grid.Column="0" Content="OffsetY" VerticalAlignment="Center"/>
+        <Slider Grid.Row="7" Grid.Column="1" Minimum="-2" Maximum="2" Value="{Binding OffsetY}" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="7" Grid.Column="2" Text="{Binding OffsetY}" VerticalAlignment="Center" TextAlignment="Right" Margin="3"/>
+        
+        <Label Grid.Row="8" Grid.Column="0" Content="Rotation" VerticalAlignment="Center"/>
+        <Slider Grid.Row="8" Grid.Column="1" Minimum="-360" Maximum="360" Value="{Binding Rotation}" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="8" Grid.Column="2" Text="{Binding Rotation}" VerticalAlignment="Center" TextAlignment="Right" Margin="3"/>
+        
+    </Grid>
+</UserControl>

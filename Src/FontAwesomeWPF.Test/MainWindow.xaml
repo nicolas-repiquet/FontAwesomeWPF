@@ -1,57 +1,111 @@
-﻿<Window x:Class="FaWPF.Test.MainWindow"
+﻿<Window x:Class="FontAwesomeWPF.Test.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FaWPF.Test"
         xmlns:fa="clr-namespace:FontAwesomeWPF;assembly=FontAwesomeWPF"
-        mc:Ignorable="d" Background="#555"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.Resources>
-            <Style x:Key="Toto" TargetType="Button">
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <Border BorderBrush="Blue" BorderThickness="2" Background="Transparent">
-                                <StackPanel Orientation="Horizontal">
-                                    <fa:Icon x:Name="Icon" Width="64" Height="64"
-                                             Source0="{x:Static fa:Solid.Circle}" Brush0="#333"
-                                             Source1="{x:Static fa:Solid.Radiation}" Brush1="Chartreuse" Scale1="0.8"
-                                             Margin="3"/>           
-                                    <TextBlock VerticalAlignment="Center" Text="Release nuclear wastes" FontSize="24" FontWeight="Bold" Foreground="Chartreuse" Margin="3"/>
-                                </StackPanel>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Trigger.EnterActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetName="Icon" Storyboard.TargetProperty="Scale1" From="0.8" To="2" Duration="0:0:1">
-                                                    <DoubleAnimation.EasingFunction>
-                                                        <ElasticEase></ElasticEase>
-                                                    </DoubleAnimation.EasingFunction>
-                                                </DoubleAnimation>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.EnterActions>
-                                    <Trigger.ExitActions>
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation Storyboard.TargetName="Icon" Storyboard.TargetProperty="Scale1" To="0.8" Duration="0:0:0.200"/>
-                                                <DoubleAnimation Storyboard.TargetName="Icon" Storyboard.TargetProperty="Rotation1" From="0" To="360" Duration="0:0:0.200"/>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </Trigger.ExitActions>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </Grid.Resources>
+        xmlns:test="clr-namespace:FontAwesomeWPF.Test"
+        Title="FontAwesomeWPF" Width="1000" Height="1000" >
+    
+    <Window.Resources>
+        <Style x:Key="Spinning" TargetType="fa:Icon">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Rotation1" From="0" To="360" RepeatBehavior="Forever" Duration="0:0:1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Scale0" From="1.5" To="2" Duration="0:0:1">
+                                    <DoubleAnimation.EasingFunction>
+                                        <ElasticEase></ElasticEase>
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Scale0" To="1.5" Duration="0:0:0.200"/>
+                                <DoubleAnimation Storyboard.TargetProperty="Rotation0" From="0" To="360" Duration="0:0:0.500"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
 
-        <Button Style="{StaticResource Toto}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+    
+        <Border Background="#555">
+            <fa:Icon Width="{Binding Size}" Height="{Binding Size}"
+                     IsVisible0="{Binding Layer0.IsVisible}" Mode0="{Binding Layer0.Mode}" Source0="{Binding Layer0.Source}" 
+                     Brush0="{Binding Layer0.Brush}" Pen0="{Binding Layer0.Pen}" Opacity0="{Binding Layer0.Opacity}"
+                     Scale0="{Binding Layer0.Scale}" OffsetX0="{Binding Layer0.OffsetX}" OffsetY0="{Binding Layer0.OffsetY}" Rotation0="{Binding Layer0.Rotation}"
+                     IsVisible1="{Binding Layer1.IsVisible}" Mode1="{Binding Layer1.Mode}" Source1="{Binding Layer1.Source}"
+                     Brush1="{Binding Layer1.Brush}" Pen1="{Binding Layer1.Pen}" Opacity1="{Binding Layer1.Opacity}"
+                     Scale1="{Binding Layer1.Scale}" OffsetX1="{Binding Layer1.OffsetX}" OffsetY1="{Binding Layer1.OffsetY}" Rotation1="{Binding Layer1.Rotation}"
+                     IsVisible2="{Binding Layer2.IsVisible}" Mode2="{Binding Layer2.Mode}" Source2="{Binding Layer2.Source}"
+                     Brush2="{Binding Layer2.Brush}" Pen2="{Binding Layer2.Pen}" Opacity2="{Binding Layer2.Opacity}"
+                     Scale2="{Binding Layer2.Scale}" OffsetX2="{Binding Layer2.OffsetX}" OffsetY2="{Binding Layer2.OffsetY}" Rotation2="{Binding Layer2.Rotation}"
+            />
+        </Border>
+        
+        <TextBox Grid.Row="1" IsReadOnly="True" FontFamily="Consolas" TextWrapping="Wrap" BorderThickness="0"
+                 Text="{Binding Xaml, Mode=OneWay}" Padding="20" Background="#222" Foreground="#aaa" FontSize="14"/>
+
+        <Button Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" BorderThickness="0" Background="Transparent" Margin="10"
+                Command="{Binding CopyXamlCommand}">
+            <fa:Icon Source0="{x:Static fa:Solid.Copy}" Brush0="White"/>
+        </Button>
+        
+        <ScrollViewer Grid.Column="1" Grid.RowSpan="2" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                
+                <GroupBox Margin="3">
+                    <Grid Margin="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+   
+                        <Label Grid.Row="0" Grid.Column="0" Content="Size" VerticalAlignment="Center"/>
+                        <Slider Grid.Row="0" Grid.Column="1" Minimum="0" Maximum="256" Value="{Binding Size}" VerticalAlignment="Center"/>
+                        <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Size}" VerticalAlignment="Center" TextAlignment="Right" Margin="3"/>
+
+                    </Grid>                  
+                </GroupBox>
+                
+                <GroupBox Header="Layer 0" Margin="3">
+                    <test:IconLayerView DataContext="{Binding Layer0}" />                    
+                </GroupBox>
+
+                <GroupBox Header="Layer 1" Margin="3">
+                    <test:IconLayerView DataContext="{Binding Layer1}" />                    
+                </GroupBox>
+                
+                <GroupBox Header="Layer 2" Margin="3">
+                    <test:IconLayerView DataContext="{Binding Layer2}" />                    
+                </GroupBox>
+                
+            </StackPanel>
+        </ScrollViewer>
         
     </Grid>
+    
 </Window>

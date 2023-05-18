@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FontAwesomeWPF;
 
-namespace FaWPF.Test
+namespace FontAwesomeWPF.Test
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -1,34 +1,38 @@
-﻿using System.Windows.Media;
+﻿using System;
+using System.Windows.Media;
 
-namespace FontAwesomeWPF;
-
-public record IconSource(string Name, int Width, int Height, string Data)
+namespace FontAwesomeWPF
 {
-    private PathGeometry? _pathGeometry;
 
-    internal PathGeometry GetPathGeometry()
+    public record IconSource(string Name, int Width, int Height, string Data)
     {
-        if (_pathGeometry == null)
+        private PathGeometry? _pathGeometry;
+
+        internal PathGeometry GetPathGeometry()
         {
-            var scaleX = 512.0 / Width;
-            var scaleY = 512.0 / Height;
-            var scale = Math.Min(scaleX, scaleY);
+            if (_pathGeometry == null)
+            {
+                var scaleX = 512.0 / Width;
+                var scaleY = 512.0 / Height;
+                var scale = Math.Min(scaleX, scaleY);
 
-            var scaledWidth = Width * scale;
-            var scaledHeight = Height * scale;
+                var scaledWidth = Width * scale;
+                var scaledHeight = Height * scale;
 
-            var offsetX = (512 - scaledWidth) / 2 - 256;
-            var offsetY = (512 - scaledHeight) / 2 - 256;
+                var offsetX = (512 - scaledWidth) / 2 - 256;
+                var offsetY = (512 - scaledHeight) / 2 - 256;
 
-            var transform = new MatrixTransform(scale, 0, 0, scale, offsetX, offsetY);
+                var transform = new MatrixTransform(scale, 0, 0, scale, offsetX, offsetY);
 
-            var figures = PathFigureCollection.Parse(Data);
+                var figures = PathFigureCollection.Parse(Data);
 
-            _pathGeometry = new PathGeometry(figures, FillRule.Nonzero, transform);
+                _pathGeometry = new PathGeometry(figures, FillRule.Nonzero, transform);
 
-            _pathGeometry.Freeze();
+                _pathGeometry.Freeze();
+            }
+
+            return _pathGeometry;
         }
-
-        return _pathGeometry;
     }
+
 }

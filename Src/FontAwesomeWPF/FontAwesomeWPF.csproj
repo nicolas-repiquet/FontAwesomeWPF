@@ -1,8 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0-windows</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
+        <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -11,10 +10,20 @@
         <Description>Simple library to bring FontAwesome icons in your WPF application</Description>
         <Copyright>Nicolas Repiquet</Copyright>
         <PackageProjectUrl>https://github.com/nicolas-repiquet/FontAwesomeWPF</PackageProjectUrl>
-        <PackageLicenseUrl>https://github.com/nicolas-repiquet/FontAwesomeWPF/LICENSE.md</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/nicolas-repiquet/FontAwesomeWPF</RepositoryUrl>
         <RepositoryType>Github</RepositoryType>
         <PackageTags>FontAwesome Font Awesome icon icons WPF</PackageTags>
+        <TargetFrameworks>net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
+        <PackageId>NicolasRepiquet.FontAwesomeWPF</PackageId>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <FileVersion>1.0.0.0</FileVersion>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     </PropertyGroup>
+    
+    <ItemGroup>
+        <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+        <None Include="..\..\LICENSE.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
 
 </Project>

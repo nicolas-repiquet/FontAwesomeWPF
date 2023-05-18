@@ -1,17 +1,22 @@
 
 
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
-namespace FontAwesomeWPF;
-
-public partial class Solid : IIconCategory
+namespace FontAwesomeWPF
 {
-    public static IEnumerable<IconSource> GetAll()
+
+    public partial class Solid
     {
-        foreach (var property in typeof(Solid).GetProperties(BindingFlags.Public | BindingFlags.Static)
-                     .Where(e => e.PropertyType == typeof(IconSource)))
+        public static IEnumerable<IconSource> GetAll()
         {
-            yield return (IconSource)property.GetValue(null)!;
+            foreach (var property in typeof(Solid).GetProperties(BindingFlags.Public | BindingFlags.Static)
+                         .Where(e => e.PropertyType == typeof(IconSource)))
+            {
+                yield return (IconSource) property.GetValue(null)!;
+            }
         }
     }
+
 }
