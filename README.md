@@ -30,7 +30,7 @@ In its simplest form, you only need to define the source and brush on a layer:
 <fa:Icon Source0="{x:Static fa:Solid.Flag}" Brush0="#FA8072" />
 ````
 
-![basic icon](https://raw.githubusercontent.com/nicolas-repiquet/FontAwesomeWPF/main/Doc/icon_00.png)
+![basic icon](Doc/icon_00.png)
 
 
 ## Layers
@@ -41,7 +41,7 @@ You can use the multiple layers to stack icons on top of each other :
 <fa:Icon Source0="{x:Static fa:Solid.Folder}" Brush0="#BC8F8F" Source1="{x:Static fa:Solid.Bolt}" Brush1="#FFD700" Scale1="0.6" OffsetY1="0.1" />
 ````
 
-![icon with layers](https://raw.githubusercontent.com/nicolas-repiquet/FontAwesomeWPF/main/Doc/icon_01.png)
+![icon with layers](Doc/icon_01.png)
 
 
 ## Mask
@@ -52,7 +52,7 @@ The "mask" mode can be used to create negative space :
 <fa:Icon Source0="{x:Static fa:Solid.Circle}" Brush0="#00FF7F" Source1="{x:Static fa:Solid.Star}" Mode1="Mask" Scale1="0.7" />
 ````
 
-![icon with mask](https://raw.githubusercontent.com/nicolas-repiquet/FontAwesomeWPF/main/Doc/icon_02.png)
+![icon with mask](Doc/icon_02.png)
 
 
 ## Animation
@@ -80,7 +80,7 @@ Of course you can animate any of the properties to achive cool effects.
 <fa:Icon Style="{StaticResource Spinner}" Source0="{x:Static fa:Solid.CircleNotch}" Brush0="#FF5577"/>
 ````
 
-![spinner](https://raw.githubusercontent.com/nicolas-repiquet/FontAwesomeWPF/main/Doc/spinner.gif)
+![spinner](Doc/spinner.gif)
 
 
 ### Hover
@@ -119,7 +119,7 @@ Of course you can animate any of the properties to achive cool effects.
             Source1="{x:Static fa:Solid.Radiation}" Brush1="#55FF77" Scale1="0.8"/>
 ````
 
-![hover](https://raw.githubusercontent.com/nicolas-repiquet/FontAwesomeWPF/main/Doc/hover.gif)
+![hover](Doc/hover.gif)
 
 # How does it works
 
@@ -145,4 +145,4 @@ The way the layer is shown is controlled by various properties (replace I with t
 
 The sources also contains a small application (_FontAwesomeWPF.Test_) to play with the various settings:
 
-![FontAwesomeWPF.Test](https://raw.githubusercontent.com/nicolas-repiquet/FontAwesomeWPF/main/Doc/test_application.png)
+![FontAwesomeWPF.Test](Doc/test_application.png)
