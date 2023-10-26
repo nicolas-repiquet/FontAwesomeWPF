@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Media;
@@ -65,7 +66,35 @@ public class IconLayerVM : ViewModelBase
 		get => _brush;
 		set => SetField(ref _brush, value);
 	}
-	
+
+	private string _color;
+	public string Color
+	{
+		get => _color;
+		set
+		{
+			if (SetField(ref _color, value))
+			{
+				try
+				{
+					if (string.IsNullOrWhiteSpace(_color))
+					{
+						Brush = null;
+					}
+					else
+					{
+						var color = (Color)ColorConverter.ConvertFromString(_color);
+						Brush = new SolidColorBrush(color);
+					}
+				}
+				catch (Exception)
+				{
+					// oops
+				}
+			}
+		}
+	}
+
 	private Pen? _pen;
 	public Pen? Pen
 	{

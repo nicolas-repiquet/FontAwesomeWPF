@@ -1,11 +1,14 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Xml.Linq;
+using Microsoft.Win32;
 
 namespace FontAwesomeWPF.Test;
 
@@ -134,10 +137,40 @@ public class IconVM : ViewModelBase
 		}
 	}
 
-	private void CopyXaml()
+	private void CopyXaml(object? parameter)
 	{
 		Clipboard.SetText(Xaml);
 	}
 
+	private void Save(object? parameter)
+	{
+		if (parameter is not Icon icon)
+		{
+			return;
+		}
+
+		var dialog = new SaveFileDialog
+		{
+			Filter = "PNG file|*.png",
+			OverwritePrompt = true
+		};
+
+		if (dialog.ShowDialog() != true)
+		{
+			return;
+		}
+
+		var bitmap = new RenderTargetBitmap((int)Size, (int)Size, 96, 96, PixelFormats.Pbgra32);
+		bitmap.Render(icon);
+
+		var encoder = new PngBitmapEncoder();
+		encoder.Frames.Add(BitmapFrame.Create(bitmap));
+		using (var file = File.Create(dialog.FileName))
+		{
+			encoder.Save(file);
+		}
+	}
+
 	public ICommand CopyXamlCommand => new ActionCommand(CopyXaml);
+	public ICommand SaveCommand => new ActionCommand(Save);
 }

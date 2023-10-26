@@ -54,6 +54,8 @@
         </ComboBox>
         
         <Label Grid.Row="3" Grid.Column="0" Content="Brush" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Color}" Margin="3"/>
+        <!--
         <ComboBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Height="40" ItemsSource="{Binding Brushes}"
                   SelectedItem="{Binding Brush}" Margin="3" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
             <ComboBox.ItemTemplate>
@@ -62,6 +64,7 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
+        -->
 
         <Label Grid.Row="4" Grid.Column="0" Content="Opacity" VerticalAlignment="Center"/>
         <Slider Grid.Row="4" Grid.Column="1" Minimum="0" Maximum="1" Value="{Binding Opacity}" VerticalAlignment="Center"/>

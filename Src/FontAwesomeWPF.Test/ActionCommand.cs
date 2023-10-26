@@ -5,18 +5,18 @@ namespace FontAwesomeWPF.Test;
 
 public class ActionCommand : ICommand
 {
-	public ActionCommand(Action action)
+	public ActionCommand(Action<object?> action)
 	{
 		_action = action;
 	}
 
-	private readonly Action _action;
+	private readonly Action<object?> _action;
 
 	public bool CanExecute(object? parameter) => true;
 
 	public void Execute(object? parameter)
 	{
-		_action();
+		_action(parameter);
 	}
 
 	public event EventHandler? CanExecuteChanged;

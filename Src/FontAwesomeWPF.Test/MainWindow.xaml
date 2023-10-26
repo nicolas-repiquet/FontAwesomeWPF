@@ -52,26 +52,38 @@
         </Grid.RowDefinitions>
     
         <Border Background="#555">
-            <fa:Icon Width="{Binding Size}" Height="{Binding Size}"
-                     IsVisible0="{Binding Layer0.IsVisible}" Mode0="{Binding Layer0.Mode}" Source0="{Binding Layer0.Source}" 
-                     Brush0="{Binding Layer0.Brush}" Pen0="{Binding Layer0.Pen}" Opacity0="{Binding Layer0.Opacity}"
-                     Scale0="{Binding Layer0.Scale}" OffsetX0="{Binding Layer0.OffsetX}" OffsetY0="{Binding Layer0.OffsetY}" Rotation0="{Binding Layer0.Rotation}"
-                     IsVisible1="{Binding Layer1.IsVisible}" Mode1="{Binding Layer1.Mode}" Source1="{Binding Layer1.Source}"
-                     Brush1="{Binding Layer1.Brush}" Pen1="{Binding Layer1.Pen}" Opacity1="{Binding Layer1.Opacity}"
-                     Scale1="{Binding Layer1.Scale}" OffsetX1="{Binding Layer1.OffsetX}" OffsetY1="{Binding Layer1.OffsetY}" Rotation1="{Binding Layer1.Rotation}"
-                     IsVisible2="{Binding Layer2.IsVisible}" Mode2="{Binding Layer2.Mode}" Source2="{Binding Layer2.Source}"
-                     Brush2="{Binding Layer2.Brush}" Pen2="{Binding Layer2.Pen}" Opacity2="{Binding Layer2.Opacity}"
-                     Scale2="{Binding Layer2.Scale}" OffsetX2="{Binding Layer2.OffsetX}" OffsetY2="{Binding Layer2.OffsetY}" Rotation2="{Binding Layer2.Rotation}"
-            />
+            <Border VerticalAlignment="Center" HorizontalAlignment="Center">
+                <fa:Icon x:Name="_icon" Width="{Binding Size}" Height="{Binding Size}"
+                         IsVisible0="{Binding Layer0.IsVisible}" Mode0="{Binding Layer0.Mode}" Source0="{Binding Layer0.Source}" 
+                         Brush0="{Binding Layer0.Brush}" Pen0="{Binding Layer0.Pen}" Opacity0="{Binding Layer0.Opacity}"
+                         Scale0="{Binding Layer0.Scale}" OffsetX0="{Binding Layer0.OffsetX}" OffsetY0="{Binding Layer0.OffsetY}" Rotation0="{Binding Layer0.Rotation}"
+                         IsVisible1="{Binding Layer1.IsVisible}" Mode1="{Binding Layer1.Mode}" Source1="{Binding Layer1.Source}"
+                         Brush1="{Binding Layer1.Brush}" Pen1="{Binding Layer1.Pen}" Opacity1="{Binding Layer1.Opacity}"
+                         Scale1="{Binding Layer1.Scale}" OffsetX1="{Binding Layer1.OffsetX}" OffsetY1="{Binding Layer1.OffsetY}" Rotation1="{Binding Layer1.Rotation}"
+                         IsVisible2="{Binding Layer2.IsVisible}" Mode2="{Binding Layer2.Mode}" Source2="{Binding Layer2.Source}"
+                         Brush2="{Binding Layer2.Brush}" Pen2="{Binding Layer2.Pen}" Opacity2="{Binding Layer2.Opacity}"
+                         Scale2="{Binding Layer2.Scale}" OffsetX2="{Binding Layer2.OffsetX}" OffsetY2="{Binding Layer2.OffsetY}" Rotation2="{Binding Layer2.Rotation}"
+                />
+            </Border>
         </Border>
         
         <TextBox Grid.Row="1" IsReadOnly="True" FontFamily="Consolas" TextWrapping="Wrap" BorderThickness="0"
                  Text="{Binding Xaml, Mode=OneWay}" Padding="20" Background="#222" Foreground="#aaa" FontSize="14"/>
 
-        <Button Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" BorderThickness="0" Background="Transparent" Margin="10"
-                Command="{Binding CopyXamlCommand}">
-            <fa:Icon Source0="{x:Static fa:Solid.Copy}" Brush0="White"/>
-        </Button>
+        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Orientation="Horizontal">
+            
+            <Button  BorderThickness="0" Background="Transparent" Margin="10"
+                     Command="{Binding CopyXamlCommand}">
+                <fa:Icon Source0="{x:Static fa:Solid.Copy}" Brush0="White"/>
+            </Button>       
+            
+            <Button  BorderThickness="0" Background="Transparent" Margin="10"
+                     Command="{Binding SaveCommand}" CommandParameter="{Binding ElementName=_icon}">
+                <fa:Icon Source0="{x:Static fa:Solid.FloppyDisk}" Brush0="White"/>
+            </Button>
+            
+        </StackPanel>
+
         
         <ScrollViewer Grid.Column="1" Grid.RowSpan="2" VerticalScrollBarVisibility="Auto">
             <StackPanel>
